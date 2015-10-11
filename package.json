@@ -1,0 +1,9 @@
+{
+  "name": "windowcleaning",
+  "main": "index.html",
+  "dependencies": {
+    "express": "^4.10.6",
+    "mysql": "^2.5.4",
+    "windowclean-database": "^1.0.0"
+  }
+}
