@@ -1,0 +1,181 @@
+/*************************
+GENERAL
+**************************/
+body {
+	font: Serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	display: block;
+	width: 100%;
+}
+img.logo {
+	display: block;
+	margin: 0 auto;
+	width: 80%;
+	min-width: 300px;
+	max-width: 400px;
+}
+
+.wrapper  {
+	text-align: center;
+	margin: 0 auto;
+	padding: 5px 5%;
+	background: url('../img/squared_metal.png');
+}
+
+.missionstatment {
+	font-family: 'Droid Serif', serif;
+	font-size: 1em;
+}
+
+h2{
+	font-family: 'Roboto', sans-serif;
+}
+
+
+/*************************
+HEADER
+**************************/
+header {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+/*************************
+FOOTER
+**************************/
+footer {
+	padding: 15px 0;
+	background: url('../img/tweed.png')
+}
+
+/*************************
+NAVIGATION
+**************************/
+nav {
+	text-align: center;
+	padding: 10px 0;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+nav li {
+	display: inline-block;
+}
+
+nav a {
+	font-weight: bold;
+	padding: 15px 10px;
+}
+
+/*************************
+COLORS
+**************************/
+body {
+ background:  url('../img/simple_dashed.png');
+ color: #000;
+}
+header {
+	background: #1f1f1f;
+}
+.featured li a{
+	color: #fff;
+	background: #c30000;
+}
+
+nav {
+	background: #111;
+}
+nav a:hover, nav a.selected {
+	background: #c30000;
+	color: #fff;
+}
+nav a, nav a:visited {
+	color: #fff;
+}
+
+
+/*************************
+HOME
+**************************/
+.info {
+	margin: 5px auto;
+	font-family: 'Droid Serif', serif;
+}
+.featured {
+	display: block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.featured li{
+	padding: 5px;
+	border-radius: 5px;
+	width: 150px;
+	color: #000;
+}
+.featured img {
+	border-radius: 5px;
+	border-style: solid;
+	border-color: #000;
+	border-width: 2px;
+	margin: 0 auto;
+	width: 100%;
+}
+.featured h3 {
+	text-align: center;
+}
+
+.featured li a {
+	display: block;
+	margin: 5px auto;
+	width: 100%;
+	border-radius: 5px;
+	font-size: 16px;
+	padding: 5px 0;
+}
+
+/*************************
+GAMES
+**************************/
+
+.gameimage {
+	border-radius: 5px;
+	border-style: solid;
+	border-color: #000;
+	border-width: 2px;
+	margin: 10px auto;
+	width: 200px;
+}
+
+.game ul {
+	list-style: none;
+	margin: auto;
+	padding: 0;
+}
+.game li {
+	margin: 15px auto;
+}
+
+.desktopgame {
+	color: white;
+	background: #c30000;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.mobilegame {
+	color: white;
+	background: #c30000;
+	border-radius: 5px;
+	padding: 5px;
+}

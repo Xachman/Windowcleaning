@@ -1,0 +1,17 @@
+header {
+    background: #F8F8F8;
+    .title {
+    	font-size: 3em;
+    	color: #fff;
+    	text-shadow: 2px 2px 2px #999;
+        img {
+            width: 200px;
+        }
+        a {
+            color: #eee;
+            &:hover {
+                color: #eee;
+            }
+        }
+    }
+}

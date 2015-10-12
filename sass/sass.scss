@@ -1,0 +1,11 @@
+@import "../sass-inc/normalize.scss";
+@import "../sass-inc/foundation.min.scss";
+header{
+  background: rgb(104, 162, 192);
+  padding: 10px;
+  color: #fff;
+  text-shadow: 2px 2px 2px #444;
+  h1 {
+    color: #fff;
+  }
+}
