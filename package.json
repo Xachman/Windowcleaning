@@ -1,6 +1,6 @@
 {
   "name": "windowcleaning",
-  "main": "index.html",
+  "main": "app://window/index.html",
   "dependencies": {
     "express": "^4.10.6",
     "mysql": "^2.5.4",

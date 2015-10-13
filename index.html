@@ -3,12 +3,24 @@
   <head>
     <title>Window App</title>
     <link rel="stylesheet" type="text/css" href="css/sass.css">
+    <script type="text/javascript" src="js/lib/jquery.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+    <script type="text/javascript" src="js/template.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
   </head>
   <body>
     <header>
-      <h1>Windowcleaning App</h1>
+      <h1>Window Cleaning App</h1>
     </header>
+    <script>
+    if(typeof global.template != 'undefined')
+      includeInThisContext("template/"+global.template+".html");
+    else
+      includeInThisContext("template/home.html");
+    </script>
     We are using node.js <script>document.write(process.version)</script>.
-    <script type="text/javascript" src="js/main.js"></script>
+
+    <script type="text/javascript" src="js/events.js"></script>
+
   </body>
 </html>

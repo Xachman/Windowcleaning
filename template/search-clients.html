@@ -1,0 +1,27 @@
+<table id="clientTable">
+</table>
+<script>
+db.query("SELECT * FROM clients", function(err, rows, fields) {
+  if (!err){
+    orgClients(rows);
+  }
+  else{
+    console.log('Error while performing Query.');
+  }
+});
+function orgClients(rows) {
+  var html = '';
+  for(var i = 0; i < rows.length; i++){
+    html += '<tr>';
+  //  console.log(rows[i]);
+    keys = Object.keys(rows[i]);
+    for(var x = 0; x < keys.length; x++){
+
+      html += '<td>'+rows[i][keys[x]]+'</td>'
+    }
+    html += '</tr>';
+  }
+
+  $('#clientTable').append(html);
+}
+</script>
