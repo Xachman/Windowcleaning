@@ -1,13 +1,17 @@
+<input id="like" name="like" type="text" />
 <table id="clientTable">
 </table>
 <script>
-db.query("SELECT * FROM clients", function(err, rows, fields) {
-  if (!err){
-    orgClients(rows);
-  }
-  else{
-    console.log('Error while performing Query.');
-  }
+var settings = {
+  limit: '100',
+  off: 0,
+  fields: '*',
+}
+
+queryClients(settings);
+$(document).on('MySQL', function(){
+  console.log('trigger');
+  orgClients(global.queryOut);
 });
 function orgClients(rows) {
   var html = '';
@@ -24,4 +28,16 @@ function orgClients(rows) {
 
   $('#clientTable').append(html);
 }
+$(document).scroll(function(){
+  if(($(document).height() - $(document).scrollTop()) < 2000){
+    settings.off += 100;
+    queryClients(settings);
+  }
+})
+$('#like').keyup(function(){
+  settings.like = $('#like').val();
+  $('#clientTable').html('');
+  queryClients(settings);
+})
+
 </script>
