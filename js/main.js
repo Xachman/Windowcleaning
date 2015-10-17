@@ -1,7 +1,10 @@
-var windowDB = require('windowclean-database');
-var troll = require('windowclean-controller');
-db = windowDB.db;
-
+var windowDB;
+//var troll = require('windowclean-controller');
+var child = require('child_process');
+var db;
+if(global.dbConex === true) {
+  
+}
 
 function queryClients(settings) {
 
