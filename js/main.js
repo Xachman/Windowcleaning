@@ -1,10 +1,22 @@
-var windowDB;
-//var troll = require('windowclean-controller');
+var windowDB = require('windowclean-database');
+var troll = require('windowclean-controller');
 var child = require('child_process');
-var db;
-if(global.dbConex === true) {
-  
-}
+if(typeof global.template === 'undefined')
+  global.template = 'home';
+db = windowDB.db;
+var gui = require("nw.gui");
+
+var win_main = gui.Window.get();
+win_main.on('close', function () {
+    this.hide(); // Pretend to be closed already
+    console.log(child.execSync('cd ./mysql-5.6.27-winx64/bin & mysqladmin -u root shutdown '));
+
+    // here you detect if data is saved, and if not, ask user if they want to save
+
+    this.close(true);   // if this line executes the app closes, if not,
+                        // app stays opened
+});
+console.log(child.execSync('cd ./mysql-5.6.27-winx64/bin & START /B mysqld'));
 
 function queryClients(settings) {
 
