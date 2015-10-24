@@ -6,7 +6,9 @@
     "icon": "icon.png",
     "toolbar": true,
     "frame": true,
-    "fullscreen": false
+    "fullscreen": false,
+    "width": 1024,
+    "height": 768
   },
   "dependencies": {
     "express": "^4.10.6",

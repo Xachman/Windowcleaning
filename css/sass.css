@@ -7344,6 +7344,7 @@ header {
 
 .column.search .table-contain {
   overflow: scroll;
-  height: 600px; }
+  height: 600px;
+  white-space: nowrap; }
 
 /*# sourceMappingURL=sass.css.map */

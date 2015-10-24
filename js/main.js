@@ -12,15 +12,6 @@ db = windowDB.db;
 var gui = require("nw.gui");
 
 var win_main = gui.Window.get();
-// win_main.on('close', function () {
-//     this.hide(); // Pretend to be closed already
-//     console.log(child.execSync('cd ./mysql-5.6.27-winx64/bin & mysqladmin -u root shutdown '));
-//
-//     // here you detect if data is saved, and if not, ask user if they want to save
-//
-//     this.close(true);   // if this line executes the app closes, if not,
-//                         // app stays opened
-// });
 
 var win_main = gui.Window.get();
 win_main.on('close', function () {
@@ -65,4 +56,12 @@ function getParameterByName(name) {
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
         results = regex.exec(location.search);
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function insertDb(table, post) {
+  post.date_added = 'NOW()';
+  db.query('INSERT INTO '+table+' SET ?', post, function(err, result) {
+    console.log('result:' + result);
+    console.log('err:' + err);
+  });
 }

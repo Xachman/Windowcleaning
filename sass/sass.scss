@@ -13,5 +13,6 @@ header{
   .table-contain {
     overflow: scroll;
     height: 600px;
+    white-space: nowrap;
   }
 }

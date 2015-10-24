@@ -42,8 +42,22 @@
       <input type="text" name="fax" />
     </div>
     <div class="column medium-6">
-      <label>Name</label>
-      <input type="text" name="name" />
+      <label>Obtained By</label>
+      <input type="text" name="obt_by" />
     </div>
+    <button class="button submit_button">Add Client</button>
   </form>
 </div>
+
+<script type="text/javascript">
+  $('.submit_button').click(function(e){
+    e.preventDefault();
+    inputs = $('form input');
+    var fields = {};
+    for(var i = 0; i < inputs.length; i++) {
+      fields[inputs.eq(i).attr('name')] = inputs.eq(i).val();
+    }
+    insertDb('clients', fields);
+    console.log(fields);
+  })
+</script>
