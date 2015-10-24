@@ -9,3 +9,9 @@ header{
     color: #fff;
   }
 }
+.column.search {
+  .table-contain {
+    overflow: scroll;
+    height: 600px;
+  }
+}

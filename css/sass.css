@@ -7342,4 +7342,8 @@ header {
   header h1 {
     color: #fff; }
 
+.column.search .table-contain {
+  overflow: scroll;
+  height: 600px; }
+
 /*# sourceMappingURL=sass.css.map */

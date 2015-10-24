@@ -4,6 +4,7 @@
     <title>Window App</title>
     <link rel="stylesheet" type="text/css" href="css/sass.css">
     <script type="text/javascript" src="js/lib/jquery.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
     <script type="text/javascript" src="js/controller.js"></script>
     <script type="text/javascript" src="js/template.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
@@ -13,10 +14,10 @@
       <h1>Window Cleaning App</h1>
     </header>
     <script>
-    if(typeof global.template != 'undefined')
-      includeInThisContext("template/"+global.template+".html");
+    if(getParameterByName('t') != '')
+      includeInThisContext("template/"+getParameterByName('t')+'.html');
     else
-      includeInThisContext("template/home.html");
+      includeInThisContext("template/index.html");
     </script>
 
     <script type="text/javascript" src="js/events.js"></script>

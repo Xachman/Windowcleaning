@@ -1,6 +1,16 @@
-<input id="like" name="like" type="text" />
-<table id="clientTable">
-</table>
+
+<div class="row">
+  <div class="medium-12 column search">
+    <br>
+    <label>Search By Name</label>
+    <input id="like" name="like" type="text" />
+    <div class="table-contain">
+      <table id="clientTable">
+      </table>
+    </div>
+  </div>
+</div>
+
 <script>
 var settings = {
   limit: '100',
@@ -15,12 +25,17 @@ $(document).on('MySQL', function(){
 });
 function orgClients(rows) {
   var html = '';
+  var keys = Object.keys(rows[0]);
+  html += '<tr>';
+  for(var i = 0; i < keys.length; i++){
+    html += '<td>'+keys[i]+'</td>';
+  }
+  html += '</tr>';
   for(var i = 0; i < rows.length; i++){
     html += '<tr>';
   //  console.log(rows[i]);
     keys = Object.keys(rows[i]);
     for(var x = 0; x < keys.length; x++){
-
       html += '<td>'+rows[i][keys[x]]+'</td>'
     }
     html += '</tr>';
@@ -28,8 +43,8 @@ function orgClients(rows) {
 
   $('#clientTable').append(html);
 }
-$(document).scroll(function(){
-  if(($(document).height() - $(document).scrollTop()) < 2000){
+$('.table-contain').scroll(function(){
+  if(($('.table-contain table').height() - $('.table-contain').scrollTop()) < 1000){
     settings.off += 100;
     queryClients(settings);
   }

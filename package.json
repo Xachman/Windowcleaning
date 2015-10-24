@@ -1,6 +1,13 @@
 {
   "name": "windowcleaning",
   "main": "app://window/index.html",
+  "window": {
+    "title": "Windowcleaning App",
+    "icon": "icon.png",
+    "toolbar": true,
+    "frame": true,
+    "fullscreen": false
+  },
   "dependencies": {
     "express": "^4.10.6",
     "mysql": "^2.5.4",
