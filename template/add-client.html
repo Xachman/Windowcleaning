@@ -57,6 +57,8 @@
     for(var i = 0; i < inputs.length; i++) {
       fields[inputs.eq(i).attr('name')] = inputs.eq(i).val();
     }
+    var date = new Date();
+    fields.date_added = db.datetime();
     insertDb('clients', fields);
     console.log(fields);
   })
