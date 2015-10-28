@@ -14,14 +14,14 @@
 <script>
 var settings = {
   limit: '100',
-  off: 0,
-  fields: '*',
+  offset: 0,
+  fields: 'all',
 }
 
 queryClients(settings);
-$(document).on('MySQL', function(){
+$(document).on('data', function(){
   console.log('trigger');
-  orgClients(global.queryOut);
+  orgClients(global.clientsJSON);
 });
 function orgClients(rows) {
   var html = '';
@@ -50,7 +50,8 @@ $('.table-contain').scroll(function(){
   }
 })
 $('#like').keyup(function(){
-  settings.like = $('#like').val();
+  settings.search_by = 'name';
+  settings.search_term = $('#like').val();
   $('#clientTable').html('');
   queryClients(settings);
 })
