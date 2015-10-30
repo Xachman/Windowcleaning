@@ -1,5 +1,5 @@
 <div class="wrapper row">
-	<div id="form" >
+	<form id="form" >
 		<div class="columns medium-6">
 			<label>Start Date</label>
 			<input type="text" name="start_date" class="date"/>
@@ -8,17 +8,17 @@
 			<label>End Date</label>
 			<input type="text" name="end_date" class="date"/>
 		</div>
-		<div class="medium-6 columns">
+		<div class="medium-12 columns">
+			<button class="submit button small" >Submit</button>
 		</div>
-	</div>
+
+	</form>
 	<div class="medium-12 columns">
 		<div id="tableHead">
 			<tabel>
 			</table>
 		</div>
-		<div id="searchResults">
-			<table>
-			</table>
+		<div id="agenda" class="row">
 		</div>
 	</div>
 </div>
@@ -52,7 +52,45 @@ function getSunday(d) {
 }
 $('[name="start_date"]').val(getStWeek());
 $('[name="end_date"]').val(getEndWeek());
+$('#form .submit').click(function(e){
+	e.preventDefault();
+	$.post(remoteURL+'?d=work-weeks', $('#form').serialize(), function(d){
+		console.log(JSON.parse(d));
+		createAgenda(JSON.parse(d));
+	});
+})
+function createAgenda(data) {
+	var cDay;
+	$('#agenda').html('');
+	for(var i = 0; i < data.length; i++) {
+		if ('num_rows' in data[i]) {
+			break;
+		}
+		if(data[i].service_date != cDay) {
+			cDay = data[i].service_date;
+			console.log(cDay);
+			$('#agenda').append('<div class="column medium-2 '+dp.getName(cDay).toLowerCase()+' '+dp.getDate(cDay)+'">'+dp.getName(cDay)+'</div>');
+		}
+		$('#agenda .'+dp.getName(data[i].service_date).toLowerCase()+'.'+dp.getDate(data[i].service_date)).append('<div>'+data[i].job_name+'</div>');
+	}
+}
 
+function ProcessDates() {
+	this.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+	this.getName = function(date) {
+		d = new Date(date);
+		return this.days[d.getDay()];
+	}
+	this.getDate = function(date) {
+		d = new Date(date);
+		return this.twoDig(d.getMonth() + 1) + '-' + this.twoDig(d.getDate()) + '-' + d.getYear();
+	}
+	this.twoDig = function(int) {
+		return ('0'+(int)).slice(-2);
+	}
+}
+dp = new ProcessDates();
 // var doingAjax = false;
 // var settings = {fields: 'all', offset: 0, currentCount: 0, tableTotal: 0}
 // var url = '<?php echo $sc->siteURL ?>?d=work-weeks';
