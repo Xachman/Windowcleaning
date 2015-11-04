@@ -573,7 +573,7 @@ select {
 .row:after {
   clear: both; }
 
-.row.collapse > .column, .row.collapse > .columns {
+.row.collapse > .column, .row.collapse > .columns, .row.collapse > #agenda {
   padding-left: 0;
   padding-right: 0; }
 
@@ -605,16 +605,16 @@ select {
 .row .row.collapse:after {
   clear: both; }
 
-.column, .columns {
+.column, .columns, #agenda {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
   width: 100%;
   float: left; }
 
-.column + .column:last-child, .columns + .column:last-child, .column + .columns:last-child, .columns + .columns:last-child {
+.column + .column:last-child, .columns + .column:last-child, #agenda + .column:last-child, .column + .columns:last-child, .column + #agenda:last-child, .columns + .columns:last-child, #agenda + .columns:last-child, .columns + #agenda:last-child, #agenda + #agenda:last-child {
   float: right; }
 
-.column + .column.end, .columns + .column.end, .column + .columns.end, .columns + .columns.end {
+.column + .column.end, .columns + .column.end, #agenda + .column.end, .column + .columns.end, .column + .end#agenda, .columns + .columns.end, #agenda + .columns.end, .columns + .end#agenda, #agenda + .end#agenda {
   float: left; }
 
 @media only screen {
@@ -738,7 +738,7 @@ select {
     right: 91.66667%;
     left: auto; }
 
-  .column, .columns {
+  .column, .columns, #agenda {
     position: relative;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
@@ -823,26 +823,26 @@ select {
     margin-right: 0;
     right: auto; }
 
-  .column.small-centered, .columns.small-centered {
+  .column.small-centered, .columns.small-centered, .small-centered#agenda {
     margin-left: auto;
     margin-right: auto;
     float: none; }
 
-  .column.small-uncentered, .columns.small-uncentered {
+  .column.small-uncentered, .columns.small-uncentered, .small-uncentered#agenda {
     float: left;
     margin-left: 0;
     margin-right: 0; }
 
-  .column.small-centered:last-child, .columns.small-centered:last-child {
+  .column.small-centered:last-child, .columns.small-centered:last-child, .small-centered#agenda:last-child {
     float: none; }
 
-  .column.small-uncentered:last-child, .columns.small-uncentered:last-child {
+  .column.small-uncentered:last-child, .columns.small-uncentered:last-child, .small-uncentered#agenda:last-child {
     float: left; }
 
-  .column.small-uncentered.opposite, .columns.small-uncentered.opposite {
+  .column.small-uncentered.opposite, .columns.small-uncentered.opposite, .small-uncentered.opposite#agenda {
     float: right; }
 
-  .row.small-collapse > .column, .row.small-collapse > .columns {
+  .row.small-collapse > .column, .row.small-collapse > .columns, .row.small-collapse > #agenda {
     padding-left: 0;
     padding-right: 0; }
 
@@ -850,7 +850,7 @@ select {
     margin-left: 0;
     margin-right: 0; }
 
-  .row.small-uncollapse > .column, .row.small-uncollapse > .columns {
+  .row.small-uncollapse > .column, .row.small-uncollapse > .columns, .row.small-uncollapse > #agenda {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     float: left; } }
@@ -975,7 +975,7 @@ select {
     right: 91.66667%;
     left: auto; }
 
-  .column, .columns {
+  .column, .columns, #agenda {
     position: relative;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
@@ -1060,26 +1060,26 @@ select {
     margin-right: 0;
     right: auto; }
 
-  .column.medium-centered, .columns.medium-centered {
+  .column.medium-centered, .columns.medium-centered, .medium-centered#agenda {
     margin-left: auto;
     margin-right: auto;
     float: none; }
 
-  .column.medium-uncentered, .columns.medium-uncentered {
+  .column.medium-uncentered, .columns.medium-uncentered, .medium-uncentered#agenda {
     float: left;
     margin-left: 0;
     margin-right: 0; }
 
-  .column.medium-centered:last-child, .columns.medium-centered:last-child {
+  .column.medium-centered:last-child, .columns.medium-centered:last-child, .medium-centered#agenda:last-child {
     float: none; }
 
-  .column.medium-uncentered:last-child, .columns.medium-uncentered:last-child {
+  .column.medium-uncentered:last-child, .columns.medium-uncentered:last-child, .medium-uncentered#agenda:last-child {
     float: left; }
 
-  .column.medium-uncentered.opposite, .columns.medium-uncentered.opposite {
+  .column.medium-uncentered.opposite, .columns.medium-uncentered.opposite, .medium-uncentered.opposite#agenda {
     float: right; }
 
-  .row.medium-collapse > .column, .row.medium-collapse > .columns {
+  .row.medium-collapse > .column, .row.medium-collapse > .columns, .row.medium-collapse > #agenda {
     padding-left: 0;
     padding-right: 0; }
 
@@ -1087,7 +1087,7 @@ select {
     margin-left: 0;
     margin-right: 0; }
 
-  .row.medium-uncollapse > .column, .row.medium-uncollapse > .columns {
+  .row.medium-uncollapse > .column, .row.medium-uncollapse > .columns, .row.medium-uncollapse > #agenda {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     float: left; }
@@ -1332,7 +1332,7 @@ select {
     right: 91.66667%;
     left: auto; }
 
-  .column, .columns {
+  .column, .columns, #agenda {
     position: relative;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
@@ -1371,7 +1371,7 @@ select {
   .large-11 {
     width: 91.66667%; }
 
-  .large-12 {
+  .large-12, #agenda {
     width: 100%; }
 
   .large-offset-0 {
@@ -1417,26 +1417,26 @@ select {
     margin-right: 0;
     right: auto; }
 
-  .column.large-centered, .columns.large-centered {
+  .column.large-centered, .columns.large-centered, .large-centered#agenda {
     margin-left: auto;
     margin-right: auto;
     float: none; }
 
-  .column.large-uncentered, .columns.large-uncentered {
+  .column.large-uncentered, .columns.large-uncentered, .large-uncentered#agenda {
     float: left;
     margin-left: 0;
     margin-right: 0; }
 
-  .column.large-centered:last-child, .columns.large-centered:last-child {
+  .column.large-centered:last-child, .columns.large-centered:last-child, .large-centered#agenda:last-child {
     float: none; }
 
-  .column.large-uncentered:last-child, .columns.large-uncentered:last-child {
+  .column.large-uncentered:last-child, .columns.large-uncentered:last-child, .large-uncentered#agenda:last-child {
     float: left; }
 
-  .column.large-uncentered.opposite, .columns.large-uncentered.opposite {
+  .column.large-uncentered.opposite, .columns.large-uncentered.opposite, .large-uncentered.opposite#agenda {
     float: right; }
 
-  .row.large-collapse > .column, .row.large-collapse > .columns {
+  .row.large-collapse > .column, .row.large-collapse > .columns, .row.large-collapse > #agenda {
     padding-left: 0;
     padding-right: 0; }
 
@@ -1444,7 +1444,7 @@ select {
     margin-left: 0;
     margin-right: 0; }
 
-  .row.large-uncollapse > .column, .row.large-uncollapse > .columns {
+  .row.large-uncollapse > .column, .row.large-uncollapse > .columns, .row.large-uncollapse > #agenda {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     float: left; }
@@ -1797,13 +1797,13 @@ form {
 form .row .row {
   margin: 0 -0.5rem; }
 
-form .row .row .column, form .row .row .columns {
+form .row .row .column, form .row .row .columns, form .row .row #agenda {
   padding: 0 0.5rem; }
 
 form .row .row.collapse {
   margin: 0; }
 
-form .row .row.collapse .column, form .row .row.collapse .columns {
+form .row .row.collapse .column, form .row .row.collapse .columns, form .row .row.collapse #agenda {
   padding: 0; }
 
 form .row .row.collapse input {
@@ -1812,7 +1812,7 @@ form .row .row.collapse input {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-form .row input.column, form .row input.columns, form .row textarea.column, form .row textarea.columns {
+form .row input.column, form .row input.columns, form .row input#agenda, form .row textarea.column, form .row textarea.columns, form .row textarea#agenda {
   padding-left: 0.5rem; }
 
 label {
@@ -4869,7 +4869,7 @@ blockquote, blockquote p {
 @media only screen and (max-width: 40em) {
   .reveal-modal {
     min-height: 100vh; } }
-.reveal-modal .column, .reveal-modal .columns {
+.reveal-modal .column, .reveal-modal .columns, .reveal-modal #agenda {
   min-width: 0; }
 
 .reveal-modal > :first-child {
@@ -7346,5 +7346,26 @@ header {
   overflow: scroll;
   height: 600px;
   white-space: nowrap; }
+
+#agenda .day {
+  width: 14.2%;
+  float: left; }
+#agenda .day-hold {
+  margin: 5px;
+  background: #A7D1E7;
+  box-shadow: 0px 0px 3px #444; }
+#agenda .job-entry {
+  font-size: 0.8em;
+  padding: 0  5px; }
+#agenda .title {
+  text-align: center;
+  font-size: 1.5;
+  margin-bottom: 5px; }
+#agenda .date {
+  margin-bottom: 10px;
+  text-align: center; }
+
+.wrapper {
+  max-width: 100% !important; }
 
 /*# sourceMappingURL=sass.css.map */

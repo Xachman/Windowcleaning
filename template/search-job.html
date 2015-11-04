@@ -55,24 +55,26 @@ $('[name="end_date"]').val(getEndWeek());
 $('#form .submit').click(function(e){
 	e.preventDefault();
 	$.post(remoteURL+'?d=work-weeks', $('#form').serialize(), function(d){
-		console.log(JSON.parse(d));
+	//	console.log(apidata.getObjectsByDate(JSON.parse(d), 'service_date', '10/05/2015'));
+
 		createAgenda(JSON.parse(d));
 	});
 })
 function createAgenda(data) {
 	var cDay;
-	$('#agenda').html('');
-	for(var i = 0; i < data.length; i++) {
-		if ('num_rows' in data[i]) {
-			break;
-		}
-		if(data[i].service_date != cDay) {
-			cDay = data[i].service_date;
-			console.log(cDay);
-			$('#agenda').append('<div class="column medium-2 '+dp.getName(cDay).toLowerCase()+' '+dp.getDate(cDay)+'">'+dp.getName(cDay)+'</div>');
-		}
-		$('#agenda .'+dp.getName(data[i].service_date).toLowerCase()+'.'+dp.getDate(data[i].service_date)).append('<div>'+data[i].job_name+'</div>');
-	}
+	$('#agenda').html(apidata.getWeekDays({start: $('[name="start_date"]').val(), end: $('[name="end_date"]').val(), sDay: 1, data: data}));
+	// for(var i = 0; i < data.length; i++) {
+	// 	if ('num_rows' in data[i]) {
+	// 		break;
+	// 	}
+	// 	if(data[i].service_date != cDay) {
+	// 		cDay = data[i].service_date;
+	// 		console.log(cDay);
+	// 		$('#agenda').append('<div class="column medium-2 '+dp.getName(cDay).toLowerCase()+' '+dp.getDate(cDay)+'">'+dp.getName(cDay)+'</div>');
+	// 	}
+	// 	$('#agenda .'+dp.getName(data[i].service_date).toLowerCase()+'.'+dp.getDate(data[i].service_date)).append('<div>'+data[i].job_name+'</div>');
+	// }
+	corectHeight('.week', '.day-hold');
 }
 
 function ProcessDates() {
@@ -91,51 +93,29 @@ function ProcessDates() {
 	}
 }
 dp = new ProcessDates();
-// var doingAjax = false;
-// var settings = {fields: 'all', offset: 0, currentCount: 0, tableTotal: 0}
-// var url = '<?php echo $sc->siteURL ?>?d=work-weeks';
-//
-// ajaxNewData(settings, url);
-// $('#searchResults').scroll(function(){
-// 	if($('#searchResults').scrollTop() >= $('#searchResults table').height() - $('#searchResults').height() - 200 && doingAjax == false){
-// 		ajaxNewData(settings, url);
-// 	}
-// });
-// $('#week').change(function(e){
-// 	e.preventDefault();
-// 	formChange();
-// });
-// $('#name').keyup(function(e){
-// 	e.preventDefault();
-// 	formChange();
-// });
-// $(document).on('ajax', function(){
-// 	$('#searchResults tr').click(function(){
-// 		$('#job').remove();
-// 		var theData
-// 		$.post('<?php echo $sc->siteURL ?>?d=job-data', {id: $(this).find('.id').html()}, function(data){
-// 			theData = JSON.parse(data);
-// 			$('.wrapper').append(jobsTemplate(theData));
-// 			$('#job').click(function(){
-// 				$('#job').remove();
-// 			});
-// 			$('#job').css('left', $('.wrapper').width() / 2 - $('#job').width() / 2+'px');
-// 		});
-// 	});
-// })
-//
-// function formChange() {
-// 	$('#searchResults table *').remove();
-//  	var search_by = $('#searchBy').val();
-//  	var fields = $('#columns').val();
-//  	var week = $('#week').val();
-//  	var name = $('#name').val();
-//  	var searchTerm = $('#searchTerm').val();
-//  	if(search_by == "") search_by = 'name';
-//  	if(fields == "") fields = 'all';
-//
-// 	settings = {fields: fields, offset: 0, currentCount: 0, name: name, week: week, tableTotal: settings.tableTotal, search_by: search_by, search_term: searchTerm }
-// 	ajaxNewData(settings, url);
-// }
 
+//$('#agenda').append(getWeekDays({start: $('[name="start_date"]').val(), end: $('[name="end_date"]').val(), sDay: 1}));
+
+$.post(remoteURL+'?d=work-weeks', $('#form').serialize(), function(d){
+//	console.log(apidata.getObjectsByDate(JSON.parse(d), 'service_date', '10/05/2015'));
+
+	createAgenda(JSON.parse(d));
+	corectHeight('.week', '.day-hold');
+});
+function corectHeight(tclass, find) {
+	var tclass = $(tclass);
+
+	for(var i = 0; i < tclass.length; i++) {
+		var find = $(tclass).eq(i).find(find);
+		console.log(find.length);
+		var height = 0;
+		for(var x = 0; x < find.length; x++) {
+
+			if(find.eq(x).height() > height){
+				height = find.eq(x).height();
+			}
+		}
+		find.height(height);
+	}
+}
 </script>

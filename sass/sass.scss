@@ -16,3 +16,32 @@ header{
     white-space: nowrap;
   }
 }
+#agenda {
+  @extend .columns;
+  @extend .large-12;
+  .day {
+    width: 14.2%;
+    float: left;
+  }
+  .day-hold {
+    margin: 5px;
+    background: #A7D1E7;
+    box-shadow: 0px 0px 3px #444;
+  }
+  .job-entry {
+    font-size: 0.8em;
+    padding: 0  5px;
+  }
+  .title {
+    text-align: center;
+    font-size: 1.5;
+    margin-bottom: 5px;
+  }
+  .date {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
+.wrapper {
+  max-width: 100% !important;
+}

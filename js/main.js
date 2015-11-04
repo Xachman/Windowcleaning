@@ -1,6 +1,7 @@
 var windowDB = require('windowclean-database');
 var troll = require('windowclean-controller');
 var child = require('child_process');
+var apidata = require('windowclean-datahandler').apidata;
 var remoteURL = 'http://localhost/app.shorewindowcleaning.com/';
 // Load native UI library
 var ngui = require('nw.gui');
