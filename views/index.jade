@@ -1,0 +1,27 @@
+//- 
+    To change this license header, choose License Headers in Project Properties.
+    To change this template file, choose Tools | Templates
+    and open the template in the editor.
+     
+
+html(ng-app="app")
+    head
+        title Window Cleaner Plus
+        link(rel="stylesheet" type="text/css" href="/css/styles.css")
+        script(src="/node_modules/angular/angular.js")
+        script(src="/node_modules/angular-route/angular-route.js")
+        script(src="/js/app.js")
+        script(src="/js/menu-controller.js")
+        script(src="/js/customers-controller.js")
+    body()
+        header
+            ul(id="main-menu" ng-controller="menuCtrl")
+                li(ng-repeat="link in links")
+                    a(href="{{link.link}}") {{link.name}}
+                    ul(class="sub-menu")
+                        li(ng-repeat="sublink in link.sublinks")
+                            a(href="{{sublink.link}}") {{sublink.name}}
+        div(class="main-container row")
+            div(class="columns large-12")
+                div(ng-view)
+            

@@ -1,0 +1,86 @@
+@import "../sass-inc/normalize.scss";
+@import "../sass-inc/foundation.min.scss";
+@import "../node_modules/font-awesome/scss/font-awesome.scss";
+@import "../sass-inc/mixins.scss";
+body {
+    background: #eee;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    &.index {
+        color: #fff;
+    }
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #222;
+}
+label {
+    color: #222;
+}
+input[name="color"] {
+    padding: 2.5px;
+}
+#canvas {
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    margin: auto;
+}
+.container {
+    margin: 0 2em;
+    max-width: 1200px;
+}
+.tasks {
+    .close {
+        .fa-circle {
+            color: #888;
+        }
+    }
+}
+
+#main-menu {
+    list-style: none;
+    display: flex;
+    background: #888;
+    margin: 0;
+    margin-bottom: 1em;
+    justify-content: flex-start;
+    > li {
+        padding: 0 0.5em;
+        position: relative;
+        .sub-menu {
+            list-style: none;
+            display: none;
+            position: absolute;
+            background: #aaa;
+            width: 100px;
+            padding: 0;
+            margin-left: -0.5em;
+            z-index: 10;
+            > li {
+                padding: 0 0.2em;
+            }
+        }
+        &:hover {
+            background: #aaa;
+            
+            > .sub-menu {
+                display: block;
+            }
+        }
+    }
+    a {
+        color: #fff;
+    }
+}
+.customers {
+    .customer {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        .item {
+            flex-grow: 1;
+            text-align: left;
+            flex-basis: 0;
+        }
+    }
+}
