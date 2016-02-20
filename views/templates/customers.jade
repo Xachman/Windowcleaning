@@ -9,12 +9,12 @@ div Customers
         div(class="order-by columns medium-6")
             label Order By:
             select()
-                option(ng-repeat="option in selectOption"){{option}}
+                option(ng-repeat="option in selectOption" value="{{option.val}}") {{option.name}}
         div(class="search-term columns medium-6")
             label Search Term:
-            input(ng-model="searchTerm" type="text")
-    div(class="customers")
-        div(ng-repeat="customer in customers" class="customer" ng-click="edit(customer._id)")
+            input(ng-model="searchTerm" type="text" ng-keyup="searchTermFunc(searchTerm)")
+    div(class="customers list-table")
+        div(ng-repeat="customer in customers" class="customer table-row" ng-click="edit(customer._id)")
             div(class="name item") {{customer.NAME}}
             div(class="address item") {{customer.ADR1}}
             div(class="phone item")  {{customer.PHONE}}

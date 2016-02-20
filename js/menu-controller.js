@@ -7,7 +7,8 @@ app.controller('menuCtrl', function ($scope) {
             sublinks: [
                 {name: "Customers",
                 link: '/#/customers'},
-                {name: "sub2"},
+                {name: "Jobs",
+                link: '/#/jobs'},
                 {name: "sub3"},
                 {name: "sub4"},
                 {name: "sub5"}

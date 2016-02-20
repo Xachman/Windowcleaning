@@ -7,13 +7,13 @@ app.config([
                 templateUrl: '/views/templates/customers',
                 controller: 'customersCtrl'
             })
-            .when('/edit-task', {
-                templateUrl: '/views/templates/edit-task',
-                controller: 'tasksCtrl'
-            })
             .when('/customers/:id', {
                 templateUrl: '/views/templates/customers-edit',
                 controller: 'customersEditCtrl'
+            })
+            .when('/jobs', {
+                templateUrl: '/views/templates/jobs',
+                controller: 'jobsCtrl'
             })
     }
 ]);

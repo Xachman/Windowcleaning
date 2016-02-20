@@ -26,7 +26,6 @@ for (var i = 0; i < routes.length; i++) {
     });
 }
 app.post('/data/*', jsonParser,function (req, res) {
-    console.log(req.body);
     var data = require(path.resolve(__dirname+'/../data/'+req.params[0]+'.js'));
     data.getData(req, res, req.body);
 });

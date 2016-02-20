@@ -72,8 +72,8 @@ input[name="color"] {
         color: #fff;
     }
 }
-.customers {
-    .customer {
+.list-table {
+    .table-row {
         display: flex;
         justify-content: space-around;
         width: 100%;
@@ -83,4 +83,32 @@ input[name="color"] {
             flex-basis: 0;
         }
     }
+}
+.edit {
+    .box {
+        background: #ddd; 
+        margin-bottom: 1em;
+        padding: 1em 0;
+        box-shadow: 0 0 2px #444;    
+        input {
+            margin-bottom: 0.5em;
+            padding: 1em 0.25em;
+            height: 2em;
+        }
+    }
+}
+.jobs-section {
+    background: #fff;
+    box-shadow: 0 0 2px #888 inset;
+    > div {
+        display: flex;
+        > div {
+            flex-grow: 1;
+            flex-basis: 0;
+            &:last-of-type {
+                flex-grow: 2;
+            }
+        }
+    }
+    
 }
