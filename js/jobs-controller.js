@@ -43,19 +43,19 @@ app.controller('jobsCtrl', function ($scope, $http) {
 });
 
 app.controller('jobsEditCtrl', function ($scope, $http, $routeParams) {
-    $scope.id = $routeParams.id;
-    $scope.customer;
-    $scope.order = []
+    $scope.jobId = $routeParams.jobId;
+    $scope.customerId = $routeParams.customerId;
+    $scope.job;
     $http({
         method: 'POST',
-        url: '/data/edit-customer',
-        data: {id: $scope.id}
+        url: '/data/edit',
+        data: {id: $scope.jobId}
     }).then(function successCallback(response) {
         // this callback will be called asynchronously
         // when the response is available
         console.log('suc');
         console.log(response);
-        $scope.customer = response.data;
+        $scope.job = response.data;
     }, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.

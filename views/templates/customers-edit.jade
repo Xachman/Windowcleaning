@@ -119,19 +119,17 @@ div(class="edit") Edit Customer
                 textarea(ng-model="customer.BILLNOTES" type="text"){{customer.BILLNOTES}}
     div(class="row box")
         div(class="medium-8 columns jobs-section")
-            div(ng-repeat="job in jobs")
+            div(ng-repeat="job in jobs" ng-click="selectJob(job._id)")
                 div() {{job.SVC_DT}}
                 div() {{job.SVC_BY}}
                 div() {{job.AMOUNT}}
                 div()  {{job.SVC_DESC}}
         div(class="medium-4 columns")
-            button(class="small") Add
+            button(class="small" ng-click="addJob()") Add
             br
-            button(class="small") Edit
+            button(class="small" ng-click="editJob()") Edit
             br
-            button(class="small") Delete
-            br
-            button(class="small") Create           
+            button(class="small" ng-click="removeJob()") Delete         
     div(class="row box")
         div(class="medium-12 columns")
             button(ng-click="save()") Save Customer

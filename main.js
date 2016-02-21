@@ -21,8 +21,8 @@ function createWindow () {
   mainWindow.loadURL('http://localhost:3789');
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
-  mainWindow.setMenu(null);
+  //mainWindow.webContents.openDevTools();
+ // mainWindow.setMenu(null);
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
     // Dereference the window object, usually you would store windows

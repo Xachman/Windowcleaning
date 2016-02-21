@@ -9,7 +9,7 @@ app.controller('customersCtrl', function ($scope, $http) {
 
 
     $scope.edit = function (id) {
-        window.location = '/#/customers/' + id;
+        window.open('/#/customers/' + id);
     }
 
     $scope.getCustomers = function (send) {
@@ -120,13 +120,37 @@ app.controller('customersEditCtrl', function ($scope, $http, $routeParams) {
             console.log(response);
         });
     }
+    $scope.selectJob = function(id) {
+        for(var i = 0; i < $scope.jobs.length; i++) {
+            if($scope.jobs[i]._id == id) {
+                $scope.job =  $scope.jobs[i];
+            }
+        }
+    }
     $scope.addJob = function() {
-        //add job
+        console.log($scope.job);
+        window.open('/#/job-add/'+$scope.id);
     }
     $scope.editJob = function() {
-        //edit job
+        window.open('/#/job-edit/'+$scope.job._id);
     }
     $scope.removeJob = function() {
-        //remove job
+        var params = {_id: $scope.job._id, _rev: $scope.job._rev};
+        $http({
+            method: 'POST',
+            url: '/data/delete',
+            data: params
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            console.log('suc');
+            console.log(response);
+            $scope.getJobs({startkey: $scope.customer.CUS_ID, endkey: $scope.customer.CUS_ID});
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+            console.log('err');
+            console.log(response);
+        });
     }
 });

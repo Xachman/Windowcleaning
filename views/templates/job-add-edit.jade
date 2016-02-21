@@ -8,26 +8,26 @@ div Job
     div(class="row box")
         div(class="medium-6 columns")
             label Service By
-            input(ng-model="SVC_BY" value="{{SVC_BY}}")
+            input(ng-model="job.SVC_BY" value="{{job.SVC_BY}}")
             label Amount
-            input(ng-model="AMOUNT" value="{{AMOUNT}}")
+            input(ng-model="job.AMOUNT" value="{{job.AMOUNT}}")
         div(class="medium-6 columns")
             label Service Date
-            input(ng-model="SVC_DT" value="{{SVC_DT}}")
+            input(ng-model="job.SVC_DT" value="{{job.SVC_DT}}")
             label Days Between
-            input(ng-model="" value="")
+            input(ng-model="job.DAYS_BT" value="{{job.DAYS_BT}}")
         div(class="medium-12 columns")
             label Service Description
-            textarea(ng-model="SVC_DESC" value="") {{SRV_DESC}}
+            textarea(ng-model="job.SVC_DESC" value="") {{job.SRV_DESC}}
             label Job Notes
-            textarea(ng-model="NOTES" value="") {{NOTES}}
+            textarea(ng-model="job.NOTES" value="") {{job.NOTES}}
         div(class="medium-6 columns")
             label Payment Expected
-            input(mg-model="PAY_EXP" value="{{PAY_EXP}}")
+            input(mg-model="job.PAY_EXP" value="{{job.PAY_EXP}}")
             label Print Invoice
-            input(mg-model="INV_PRT" value="{{INV_PRT}}")
+            input(mg-model="job.INV_PRT" value="{{job.INV_PRT}}")
             label Work Order
-            input(mg-model="SS_PRT" value="{{SS_PRT}}")
+            input(mg-model="job.SS_PRT" value="{{job.SS_PRT}}")
             label Print Auto Service Statement
-            input(mg-model="A_SS_PRT" value="{{A_SS_PRT}}")
+            input(mg-model="job.A_SS_PRT" value="{{job.A_SS_PRT}}")
         

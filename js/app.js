@@ -15,5 +15,13 @@ app.config([
                 templateUrl: '/views/templates/jobs',
                 controller: 'jobsCtrl'
             })
+            .when('/job-edit/:jobId', {
+                templateUrl: '/views/templates/job-add-edit',
+                controller: 'jobsEditCtrl'
+            })
+            .when('/job-add/:customerId', {
+                templateUrl: '/views/templates/job-add-edit',
+                controller: 'jobsEditCtrl'
+            })
     }
 ]);
