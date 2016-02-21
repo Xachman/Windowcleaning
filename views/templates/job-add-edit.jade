@@ -1,0 +1,33 @@
+//- 
+    To change this license header, choose License Headers in Project Properties.
+    To change this template file, choose Tools | Templates
+    and open the template in the editor.
+     
+
+div Job    
+    div(class="row box")
+        div(class="medium-6 columns")
+            label Service By
+            input(ng-model="SVC_BY" value="{{SVC_BY}}")
+            label Amount
+            input(ng-model="AMOUNT" value="{{AMOUNT}}")
+        div(class="medium-6 columns")
+            label Service Date
+            input(ng-model="SVC_DT" value="{{SVC_DT}}")
+            label Days Between
+            input(ng-model="" value="")
+        div(class="medium-12 columns")
+            label Service Description
+            textarea(ng-model="SVC_DESC" value="") {{SRV_DESC}}
+            label Job Notes
+            textarea(ng-model="NOTES" value="") {{NOTES}}
+        div(class="medium-6 columns")
+            label Payment Expected
+            input(mg-model="PAY_EXP" value="{{PAY_EXP}}")
+            label Print Invoice
+            input(mg-model="INV_PRT" value="{{INV_PRT}}")
+            label Work Order
+            input(mg-model="SS_PRT" value="{{SS_PRT}}")
+            label Print Auto Service Statement
+            input(mg-model="A_SS_PRT" value="{{A_SS_PRT}}")
+        
