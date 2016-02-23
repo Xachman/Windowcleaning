@@ -1,0 +1,13 @@
+//- 
+    To change this license header, choose License Headers in Project Properties.
+    To change this template file, choose Tools | Templates
+    and open the template in the editor.
+     
+
+div(class="settings row")
+    div(class="medium-12 columns" ng-repeat="setting in settings")
+        label {{setting.label}}
+        input(ng-model="setting.val" value="{{setting.val}}")
+    div(class="medium-12 columns")
+        br
+        button(ng-click="submitDb()") Submit 

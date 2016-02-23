@@ -33,6 +33,17 @@ app.controller('menuCtrl', function ($scope) {
                 {name: "sub4"},
                 {name: "sub5"}
             ]
+        },
+        { 
+            name: "Settings",
+            sublinks: [
+                {name: "Database",
+                link: '/#/settings/db'},
+                {name: "sub2"},
+                {name: "sub3"},
+                {name: "sub4"},
+                {name: "sub5"}
+            ]
         }
             
     ];

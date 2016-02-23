@@ -23,5 +23,9 @@ app.config([
                 templateUrl: '/views/templates/job-add-edit',
                 controller: 'jobsEditCtrl'
             })
+            .when('/settings/db', {
+                templateUrl: '/views/templates/settings-db',
+                controller: 'settingsDbCtrl'
+            })
     }
 ]);
