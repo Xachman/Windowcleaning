@@ -1,6 +1,6 @@
 module.exports.getData = function (req, res, data) {
     var docs = [];
-    var params = {limit: 101};
+    var params = {};
     params.view = 'by_name';
     for (var attrname in data) {
         params[attrname] = data[attrname];

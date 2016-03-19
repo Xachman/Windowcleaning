@@ -1,0 +1,160 @@
+<div class="edit">Edit Customer    
+  <div class="row box">
+    <div class="columns medium-3">
+      <label>Active</label>
+      <input ng-model="customer.ACTIVE" value="{{customer.ACTIVE}}" type="checkbox"/>
+    </div>
+    <div class="columns medium-3">
+      <label>Inactive Since</label>
+      <input ng-model="customer.NACTIVE_DT" ng-bind="customer.NACTIVE_DT | date:'MM/dd/yyyy'" value="{{customer.NACTIVE_DT}}" type="text" class="datepicker"/>
+    </div>
+    <div class="columns medium-3">
+      <label>AWW Pur</label>
+      <input ng-model="customer.AWWPUR" value="{{customer.AWWPUR}}" type="checkbox"/>
+    </div>
+    <div class="columns medium-3">
+      <label>Customer ID</label>
+      <input ng-model="customer.CUS_ID" value="{{customer.CUS_ID}}" type="checkbox"/>
+    </div>
+  </div>
+  <div class="row box">
+    <div class="medium-5 columns">
+      <label>Name</label>
+      <input ng-model="customer.NAME" value="{{customer.NAME}}" type="text"/>
+      <label>Location</label>
+      <input ng-model="customer.LOCATION" value="{{customer.LOCATION}}" type="text"/>
+      <div class="row">
+        <div class="columns small-4">
+          <label>Area</label>
+          <input ng-model="customer.AREA" value="{{customer.AREA}}" type="text"/>
+        </div>
+        <div class="columns small-4">
+          <label>Type</label>
+          <input ng-model="customer.TYPE" value="{{customer.TYPE}}" type="text"/>
+        </div>
+        <div class="columns small-4">
+          <label>Company</label>
+          <input ng-model="customer.COMPANY" value="{{customer.COMPANY}}" type="text"/>
+        </div>
+      </div>
+    </div>
+    <div class="medium-2 columns">
+      <label>Monthly Bill</label>
+      <input ng-model="customer.MONBILL" value="{{customer.MONBILL}}" type="text"/>
+    </div>
+    <div class="medium-5 columns">
+      <label>Customer Since</label>
+      <input ng-model="customer.OBT_DT" value="{{customer.OBT_DT}}" type="text"/>
+      <label>Obtained By</label>
+      <input ng-model="customer.OBT_BY" value="{{customer.OBT_BY}}" type="text"/>
+      <label>Royalty To</label>
+      <input ng-model="customer.RLTY_PYMT" value="{{customer.RLTY_PYMT}}" type="text"/>
+    </div>
+  </div>
+  <div class="row box">
+    <div class="medium-6 columns">
+      <label>Contact</label>
+      <input ng-model="customer.CONTACT" value="{{customer.CONTACT}}" type="text"/>
+      <label>Address</label>
+      <input ng-model="customer.ADR1" value="{{customer.ADR1}}" type="text"/>
+      <label>Address</label>
+      <input ng-model="customer.ADR2" value="{{customer.ADR2}}" type="text"/>
+      <div class="row">
+        <div class="columns small-4">
+          <label>City</label>
+          <input ng-model="customer.CITY" value="{{customer.CITY}}" type="text"/>
+        </div>
+        <div class="columns small-4">
+          <label>State</label>
+          <input ng-model="customer.ST" value="{{customer.ST}}" type="text"/>
+        </div>
+        <div class="columns small-4">
+          <label>Zip</label>
+          <input ng-model="customer.ZIP" value="{{customer.ZIP}}" type="text"/>
+        </div>
+      </div>
+      <label>Fax</label>
+      <input ng-model="customer.FAX" value="{{customer.FAX}}" type="text"/>
+      <label>Phone</label>
+      <input ng-model="customer.PHONE" value="{{customer.PHONE}}" type="text"/>
+    </div>
+    <div class="medium-6 columns">
+      <label>Contact</label>
+      <input ng-model="customer.CONTACT_B" value="{{customer.CONTACT_B}}" type="text"/>
+      <label>Address</label>
+      <input ng-model="customer.ADR1_B" value="{{customer.ADR1_B}}" type="text"/>
+      <label>Address</label>
+      <input ng-model="customer.ADR2_B" value="{{customer.ADR2_B}}" type="text"/>
+      <div class="row">
+        <div class="columns small-4">
+          <label>City</label>
+          <input ng-model="customer.CITY_B" value="{{customer.CITY_B}}" type="text"/>
+        </div>
+        <div class="columns small-4">
+          <label>State</label>
+          <input ng-model="customer.ST_B" value="{{customer.ST_B}}" type="text"/>
+        </div>
+        <div class="columns small-4">
+          <label>Zip</label>
+          <input ng-model="customer.ZIP_B" value="{{customer.ZIP_B}}" type="text"/>
+        </div>
+      </div>
+      <label>Fax</label>
+      <input ng-model="customer.FAX_B" value="{{customer.FAX_B}}" type="text"/>
+      <label>Phone</label>
+      <input ng-model="customer.PHONE_B" value="{{customer.PHONE_B}}" type="text"/>
+    </div>
+  </div>
+  <div class="row box">
+    <div class="columns medium-6">
+      <div class="row">
+        <div class="columns medium-7">
+          <input ng-model="customer.EOM" value="{{customer.EOM}}" type="checkbox"/>
+          <label>4 Week Invoice</label><br/>
+          <input ng-model="customer.MONTHLY" value="{{customer.ADR1_B}}" type="checkbox"/>
+          <label>Calendar Month Invoice</label><br/>
+          <input ng-model="customer.QTR_BILL" value="{{customer.QTR_BILL}}" type="checkbox"/>
+          <label>Quartarly Invoice</label><br/>
+        </div>
+        <div class="columns medium-5">
+          <label>Bill Charge</label>
+          <input ng-model="customer.BILLCHARGE" value="{{customer.BILLCHARGE}}" type="text"/>
+          <label>Credit</label>
+          <input ng-model="customer.CREDIT" value="{{customer.CREDIT}}" type="text"/>
+          <label>Deposit</label>
+          <input ng-model="customer.DEPOSIT" value="{{customer.DEPOSIT}}" type="text"/>
+          <label>Sales Tax</label>
+          <input ng-model="customer.STAXPER" value="{{customer.STAXPER}}" type="text"/>
+        </div>
+      </div>
+    </div>
+    <div class="columns medium-6">
+      <label>Customer Notes
+        <textarea ng-model="customer.CUSNOTES" type="text">{{customer.CUSNOTES}}</textarea>
+      </label>
+      <label>Collection Notes
+        <textarea ng-model="customer.BILLNOTES" type="text">{{customer.BILLNOTES}}</textarea>
+      </label>
+    </div>
+  </div>
+  <div class="row box">
+    <div class="medium-8 columns jobs-section">
+      <div ng-repeat="job in jobs" ng-click="selectJob(job._id)">
+        <div>{{job.SVC_DT}}</div>
+        <div>{{job.SVC_BY}}</div>
+        <div>{{job.AMOUNT}}</div>
+        <div> {{job.SVC_DESC}}</div>
+      </div>
+    </div>
+    <div class="medium-4 columns">
+      <button ng-click="addJob()" class="small">Add</button><br/>
+      <button ng-click="editJob()" class="small">Edit</button><br/>
+      <button ng-click="removeJob()" class="small">Delete         </button>
+    </div>
+  </div>
+  <div class="row box">
+    <div class="medium-12 columns">
+      <button ng-click="save()">Save Customer</button>
+    </div>
+  </div>
+</div>

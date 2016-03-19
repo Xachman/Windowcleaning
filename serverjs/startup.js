@@ -3,7 +3,12 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
-db = require('nano')('http://ironside.ddns.net:5984/shorewindowcleaning');
+var jsonfile = require('jsonfile');
+var util = require('util');
+
+var file = 'config.json';
+
+
 
 //db.view('views', 'customers', {limit: 101}, function(err, body) {
 //  if (!err) {
@@ -12,11 +17,8 @@ db = require('nano')('http://ironside.ddns.net:5984/shorewindowcleaning');
 //    });
 //  }
 //});
-
-app.set('views',  __dirname+'/../views');
-app.set('view engine', 'jade');
 app.get('/', function (req, res) {
-    res.render('index');
+    res.sendFile(path.resolve(__dirname+'/../views/index.html'));
 });
 var routes = ['css', 'js', 'node_modules'];
 
@@ -30,10 +32,32 @@ app.post('/data/*', jsonParser,function (req, res) {
     data.getData(req, res, req.body);
 });
 app.get('/views/*', function (req, res) {
-    res.render(path.resolve(__dirname+'/../'+req.url));
+    res.sendFile(path.resolve(__dirname+'/../'+req.url+'.html'));
 });
 app.listen(3789, function () {
     console.log('Example app listening on port 3789!');
 });
 
-//console.log(app);
+
+getDb = function() {
+    return config.database;
+};
+
+setDb = function() {
+    setConfig();
+    var dbcreds = config.database;
+    
+    var dburl = dbcreds.dburl;
+    var dbname = encodeURI(dbcreds.dbname);
+    var dbpass = encodeURI(dbcreds.dbpass);
+    var dbuser = encodeURI(dbcreds.dbuser);
+    
+    db = require('nano')('http://'+dbuser+':'+dbpass+'@'+dburl+'/'+dbname);
+
+};
+
+setConfig = function() {
+    config = jsonfile.readFileSync(file);
+};
+
+setDb();

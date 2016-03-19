@@ -45,6 +45,7 @@ app.controller('jobsCtrl', function ($scope, $http) {
 app.controller('jobsEditCtrl', function ($scope, $http, $routeParams) {
     $scope.jobId = $routeParams.jobId;
     $scope.customerId = $routeParams.customerId;
+    console.log($scope.customerId);
     $scope.job;
     $http({
         method: 'POST',
@@ -63,12 +64,12 @@ app.controller('jobsEditCtrl', function ($scope, $http, $routeParams) {
         console.log(response);
     });
 
-    $scope.save = function () {
+    $scope.update = function () {
         console.log($scope.customer);
         $http({
             method: 'POST',
-            url: '/data/save-customer',
-            data: $scope.customer
+            url: '/data/save',
+            data: $scope.job
         }).then(function successCallback(response) {
             // this callback will be called asynchronously
             // when the response is available

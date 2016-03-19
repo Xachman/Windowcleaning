@@ -23,7 +23,10 @@
   },
   "homepage": "https://github.com/atom/electron-quick-start#readme",
   "devDependencies": {
-    "electron-prebuilt": "^0.36.0"
+    "electron-prebuilt": "^0.36.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0",
+    "node-sass": "^3.4.2"
   },
   "dependencies": {
     "angular": "^1.5.0",
@@ -32,7 +35,6 @@
     "express": "^4.13.4",
     "font-awesome": "^4.5.0",
     "jade": "^1.11.0",
-    "jquery": "^2.2.0",
     "jsonfile": "^2.2.3",
     "nano": "^6.2.0"
   }

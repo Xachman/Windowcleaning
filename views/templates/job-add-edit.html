@@ -1,0 +1,36 @@
+<div>Job    
+    <div ng-if="!job.CUS_ID"><input type="hidden" ng-model="job.CUS_ID" value="{{customerId}}"/></div>
+  <div class="row box">
+    <div class="medium-6 columns">
+      <label>Service By</label>
+      <input ng-model="job.SVC_BY" value="{{job.SVC_BY}}"/>
+      <label>Amount</label>
+      <input ng-model="job.AMOUNT" value="{{job.AMOUNT}}"/>
+    </div>
+    <div class="medium-6 columns">
+      <label>Service Date</label>
+      <input ng-model="job.SVC_DT" value="{{job.SVC_DT}}"/>
+      <label>Days Between</label>
+      <input ng-model="job.DAYS_BT" value="{{job.DAYS_BT}}"/>
+    </div>
+    <div class="medium-12 columns">
+      <label>Service Description</label>
+      <textarea ng-model="job.SVC_DESC" value="">{{job.SRV_DESC}}</textarea>
+      <label>Job Notes</label>
+      <textarea ng-model="job.NOTES" value="">{{job.NOTES}}</textarea>
+    </div>
+    <div class="medium-6 columns">
+      <label>Payment Expected</label>
+      <input ng-model="job.PAY_EXP" value="{{job.PAY_EXP}}"/>
+      <label>Print Invoice</label>
+      <input ng-model="job.INV_PRT" value="{{job.INV_PRT}}"/>
+      <label>Work Order</label>
+      <input ng-model="job.SS_PRT" value="{{job.SS_PRT}}"/>
+      <label>Print Auto Service Statement</label>
+      <input ng-model="job.A_SS_PRT" value="{{job.A_SS_PRT}}"/>
+    </div>
+    <div class="medium-12 columns">
+      <button ng-click="update()">Update</button>
+    </div>
+  </div>
+</div>

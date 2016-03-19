@@ -6,7 +6,8 @@ module.exports.getData = function (req, res, data) {
     var obj = {database: data}
 
     jsonfile.writeFile(file, obj, function (err) {
-      console.error(err)
+      console.error(err);
+      setDb();
     });
 }
 

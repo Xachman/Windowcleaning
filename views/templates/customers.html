@@ -1,0 +1,21 @@
+<div>Customers    
+  <div class="searc-box row">
+    <div class="order-by columns medium-6">
+      <label>Order By:</label>
+      <select>
+        <option ng-repeat="option in selectOption" value="{{option.val}}">{{option.name}}</option>
+      </select>
+    </div>
+    <div class="search-term columns medium-6">
+      <label>Search Term:</label>
+      <input ng-model="searchTerm" type="text" ng-keyup="searchTermFunc(searchTerm)"/>
+    </div>
+  </div>
+  <div class="customers list-table">
+    <div ng-repeat="customer in customers" ng-click="edit(customer._id)" class="customer table-row">
+      <div class="name item">{{customer.NAME}}</div>
+      <div class="address item">{{customer.ADR1}}</div>
+      <div class="phone item"> {{customer.PHONE}}</div>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,7 @@ app.controller('customersCtrl', function ($scope, $http) {
     $scope.select = '';
     $scope.selectOption = [{name: 'Name', val: 'by_name'}, {name: 'Location', val: 'by_location'}, {name: 'Address', val: 'by_address'}];
 
-
+    
     $scope.edit = function (id) {
         window.open('/#/customers/' + id);
     }
@@ -15,7 +15,8 @@ app.controller('customersCtrl', function ($scope, $http) {
     $scope.getCustomers = function (send) {
         var params = {
             viewGroup: 'customers',
-            view: 'by_name'
+            view: 'by_name',
+            limit: 101
         }
         for (att in send) {
             params[att] = send[att];
@@ -58,6 +59,7 @@ app.controller('customersEditCtrl', function ($scope, $http, $routeParams) {
     $scope.order = [];
     $scope.jobs;
     $scope.job;
+    $scope.dateFields = ['NACTIVE_DT', 'OBT_DT']
     $http({
         method: 'POST',
         url: '/data/edit',
@@ -69,6 +71,8 @@ app.controller('customersEditCtrl', function ($scope, $http, $routeParams) {
         console.log(response);
         $scope.customer = response.data;
         $scope.getJobs({startkey: $scope.customer.CUS_ID, endkey: $scope.customer.CUS_ID});
+        $scope.clearNull($scope.customer);
+        $scope.makeDates($scope.customer, $scope.dateFields);
     }, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
@@ -80,7 +84,7 @@ app.controller('customersEditCtrl', function ($scope, $http, $routeParams) {
         console.log($scope.customer);
         $http({
             method: 'POST',
-            url: '/data/save-customer',
+            url: '/data/save',
             data: $scope.customer
         }).then(function successCallback(response) {
             // this callback will be called asynchronously

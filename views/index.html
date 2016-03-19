@@ -1,0 +1,33 @@
+<html ng-app="app">
+  <head>
+       
+    <title>Window Cleaner Plus</title>
+    <link rel="stylesheet" type="text/css" href="/js/lib/jquery/jquery-ui/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/sass.css"/>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/angular-route/angular-route.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/app-controller.js"></script>
+    <script src="/js/menu-controller.js"></script>
+    <script src="/js/customers-controller.js"></script>
+    <script src="/js/jobs-controller.js"></script>
+    <script src="/js/settings-controllers.js"></script>
+  </head>
+  <body ng-controller="appCtrl">
+    <header>
+      <ul id="main-menu" ng-controller="menuCtrl">
+        <li ng-repeat="link in links"><a href="{{link.link}}">{{link.name}}</a>
+          <ul class="sub-menu">
+            <li ng-repeat="sublink in link.sublinks"><a href="{{sublink.link}}">{{sublink.name}}</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <div class="main-container row">
+      <div class="columns large-12">
+        <div ng-view="ng-view"></div>
+      </div>
+    </div>
+     
+  </body>
+</html>

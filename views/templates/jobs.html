@@ -1,0 +1,21 @@
+<div>Jobs    
+  <div class="searc-box row">
+    <div class="order-by columns medium-6">
+      <label>Order By:</label>
+      <select>
+        <option ng-repeat="option in selectOption">{{option}}</option>
+      </select>
+    </div>
+    <div class="search-term columns medium-6">
+      <label>Search Term:</label>
+      <input ng-model="searchTerm" type="text"/>
+    </div>
+  </div>
+  <div class="jobs list-table">
+    <div ng-repeat="job in jobs" ng-click="edit(job._id)" class="job table-row">
+      <div class="name item">{{job.SVC_DT}}</div>
+      <div class="address item">{{job.SVC_BY}}</div>
+      <div class="phone item"> {{job.CUS_ID}}</div>
+    </div>
+  </div>
+</div>
