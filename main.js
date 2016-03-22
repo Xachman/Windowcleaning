@@ -12,6 +12,8 @@ let mainWindow;
 
 
 require('./serverjs/startup.js');
+global.events = require('./serverjs/events.js').events;
+
 
 function createWindow () {
   // Create the browser window.
@@ -25,6 +27,7 @@ function createWindow () {
  // mainWindow.setMenu(null);
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
+      console.log('closed');
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
@@ -51,6 +54,11 @@ app.on('activate', function () {
   if (mainWindow === null) {
     createWindow();
   }
+});
+
+
+global.events.on('update', function(){
+    electron.BrowserWindow.getAllWindows()[0].reload();
 });
 
 

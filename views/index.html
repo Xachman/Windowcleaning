@@ -4,6 +4,10 @@
     <title>Window Cleaner Plus</title>
     <link rel="stylesheet" type="text/css" href="/js/lib/jquery/jquery-ui/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="/css/sass.css"/>
+    <script>
+        var remote = require('electron').remote;     
+        var events = remote.getGlobal('events');
+    </script>
     <script src="/node_modules/angular/angular.js"></script>
     <script src="/node_modules/angular-route/angular-route.js"></script>
     <script src="/js/app.js"></script>

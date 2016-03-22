@@ -47,6 +47,7 @@ app.controller('jobsEditCtrl', function ($scope, $http, $routeParams) {
     $scope.customerId = $routeParams.customerId;
     console.log($scope.customerId);
     $scope.job;
+    
     $http({
         method: 'POST',
         url: '/data/edit',
@@ -57,6 +58,8 @@ app.controller('jobsEditCtrl', function ($scope, $http, $routeParams) {
         console.log('suc');
         console.log(response);
         $scope.job = response.data;
+        $scope.job.type="job";
+        
     }, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
@@ -65,7 +68,10 @@ app.controller('jobsEditCtrl', function ($scope, $http, $routeParams) {
     });
 
     $scope.update = function () {
+        if(typeof $scope.job.CUS_ID === 'undefined' ) $scope.job.CUS_ID = $scope.customerId;
+        console.log($scope.job);
         console.log($scope.customer);
+        
         $http({
             method: 'POST',
             url: '/data/save',

@@ -7,7 +7,7 @@ app.controller('customersCtrl', function ($scope, $http) {
     $scope.select = '';
     $scope.selectOption = [{name: 'Name', val: 'by_name'}, {name: 'Location', val: 'by_location'}, {name: 'Address', val: 'by_address'}];
 
-    
+
     $scope.edit = function (id) {
         window.open('/#/customers/' + id);
     }
@@ -60,26 +60,28 @@ app.controller('customersEditCtrl', function ($scope, $http, $routeParams) {
     $scope.jobs;
     $scope.job;
     $scope.dateFields = ['NACTIVE_DT', 'OBT_DT']
-    $http({
-        method: 'POST',
-        url: '/data/edit',
-        data: {id: $scope.id}
-    }).then(function successCallback(response) {
-        // this callback will be called asynchronously
-        // when the response is available
-        console.log('suc');
-        console.log(response);
-        $scope.customer = response.data;
-        $scope.getJobs({startkey: $scope.customer.CUS_ID, endkey: $scope.customer.CUS_ID});
-        $scope.clearNull($scope.customer);
-        $scope.makeDates($scope.customer, $scope.dateFields);
-    }, function errorCallback(response) {
-        // called asynchronously if an error occurs
-        // or server returns response with an error status.
-        console.log('err');
-        console.log(response);
-    });
-
+    $scope.init = function (send) {
+        $http({
+            method: 'POST',
+            url: '/data/edit',
+            data: {id: $scope.id}
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            console.log('suc');
+            console.log(response);
+            $scope.customer = response.data;
+            $scope.getJobs({keys: [$scope.customer.CUS_ID, $scope.customer._id]});
+            $scope.clearNull($scope.customer);
+            $scope.makeDates($scope.customer, $scope.dateFields);
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+            console.log('err');
+            console.log(response);
+        });
+    };
+    
     $scope.save = function () {
         console.log($scope.customer);
         $http({
@@ -91,6 +93,7 @@ app.controller('customersEditCtrl', function ($scope, $http, $routeParams) {
             // when the response is available
             console.log('suc');
             console.log(response);
+            events.emit('update');
             // $scope.customer = response.data;
         }, function errorCallback(response) {
             // called asynchronously if an error occurs
@@ -124,21 +127,21 @@ app.controller('customersEditCtrl', function ($scope, $http, $routeParams) {
             console.log(response);
         });
     }
-    $scope.selectJob = function(id) {
-        for(var i = 0; i < $scope.jobs.length; i++) {
-            if($scope.jobs[i]._id == id) {
-                $scope.job =  $scope.jobs[i];
+    $scope.selectJob = function (id) {
+        for (var i = 0; i < $scope.jobs.length; i++) {
+            if ($scope.jobs[i]._id == id) {
+                $scope.job = $scope.jobs[i];
             }
         }
     }
-    $scope.addJob = function() {
+    $scope.addJob = function () {
         console.log($scope.job);
-        window.open('/#/job-add/'+$scope.id);
+        window.open('/#/job-add/' + $scope.id);
     }
-    $scope.editJob = function() {
-        window.open('/#/job-edit/'+$scope.job._id);
+    $scope.editJob = function () {
+        window.open('/#/job-edit/' + $scope.job._id);
     }
-    $scope.removeJob = function() {
+    $scope.removeJob = function () {
         var params = {_id: $scope.job._id, _rev: $scope.job._rev};
         $http({
             method: 'POST',
@@ -149,7 +152,7 @@ app.controller('customersEditCtrl', function ($scope, $http, $routeParams) {
             // when the response is available
             console.log('suc');
             console.log(response);
-            $scope.getJobs({startkey: $scope.customer.CUS_ID, endkey: $scope.customer.CUS_ID});
+            $scope.getJobs({keys: [$scope.customer.CUS_ID, $scope.customer._id]});
         }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
@@ -157,4 +160,6 @@ app.controller('customersEditCtrl', function ($scope, $http, $routeParams) {
             console.log(response);
         });
     }
+    
+    $scope.init();
 });
