@@ -9,7 +9,7 @@ app.controller('customersCtrl', function ($scope, $http) {
 
 
     $scope.edit = function (id) {
-        window.open('/#/customers/' + id);
+        window.location = '/#/customers/' + id;
     }
 
     $scope.getCustomers = function (send) {
@@ -136,10 +136,10 @@ app.controller('customersEditCtrl', function ($scope, $http, $routeParams) {
     }
     $scope.addJob = function () {
         console.log($scope.job);
-        window.open('/#/job-add/' + $scope.id);
+        window.location = '/#/job-add/' + $scope.id;
     }
     $scope.editJob = function () {
-        window.open('/#/job-edit/' + $scope.job._id);
+        window.location = '/#/job-edit/' + $scope.job._id;
     }
     $scope.removeJob = function () {
         var params = {_id: $scope.job._id, _rev: $scope.job._rev};

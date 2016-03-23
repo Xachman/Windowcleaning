@@ -27,7 +27,7 @@ app.controller('menuCtrl', function ($scope) {
         { 
             name: "Reports",
             sublinks: [
-                {name: "sub1"},
+                {name: 'Work Weeks',link: "/#/reports/work-weeks"},
                 {name: "sub2"},
                 {name: "sub3"},
                 {name: "sub4"},
