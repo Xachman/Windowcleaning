@@ -2,15 +2,15 @@
   <div class="row box">
     <div class="medium-6 columns">
       <label>Service By</label>
-      <input ng-model="job.SVC_BY" value="{{job.SVC_BY}}"/>
+      <input type="text" ng-model="job.SVC_BY" value="{{job.SVC_BY}}"/>
       <label>Amount</label>
-      <input ng-model="job.AMOUNT" value="{{job.AMOUNT}}"/>
+      <input type="text" ng-model="job.AMOUNT" value="{{job.AMOUNT}}"/>
     </div>
     <div class="medium-6 columns">
       <label>Service Date</label>
-      <input ng-model="job.SVC_DT" value="{{job.SVC_DT}}"/>
+      <input ng-model="job.SVC_DT" type="date"/>
       <label>Days Between</label>
-      <input ng-model="job.DAYS_BT" value="{{job.DAYS_BT}}"/>
+      <input type="number" ng-model="job.DAYS_BT" value="{{job.DAYS_BT}}"/>
     </div>
     <div class="medium-12 columns">
       <label>Service Description</label>
@@ -20,13 +20,13 @@
     </div>
     <div class="medium-6 columns">
       <label>Payment Expected</label>
-      <input ng-model="job.PAY_EXP" value="{{job.PAY_EXP}}"/>
+      <input type="text" ng-model="job.PAY_EXP" value="{{job.PAY_EXP}}"/>
       <label>Print Invoice</label>
-      <input ng-model="job.INV_PRT" value="{{job.INV_PRT}}"/>
+      <input type="text" ng-model="job.INV_PRT" value="{{job.INV_PRT}}"/>
       <label>Work Order</label>
-      <input ng-model="job.SS_PRT" value="{{job.SS_PRT}}"/>
+      <input type="text" ng-model="job.SS_PRT" value="{{job.SS_PRT}}"/>
       <label>Print Auto Service Statement</label>
-      <input ng-model="job.A_SS_PRT" value="{{job.A_SS_PRT}}"/>
+      <input type="text" ng-model="job.A_SS_PRT" value="{{job.A_SS_PRT}}"/>
     </div>
     <div class="medium-12 columns">
       <button ng-click="update()">Update</button>

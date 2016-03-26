@@ -59,7 +59,8 @@ app.controller('jobsEditCtrl', function ($scope, $http, $routeParams) {
         console.log(response);
         $scope.job = response.data;
         $scope.job.type="job";
-        
+        $scope.job.SVC_DT = $scope.formatDate($scope.job.SVC_DT);
+        $scope.job.SVC_DT = new Date($scope.job.SVC_DT);
     }, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
@@ -71,7 +72,8 @@ app.controller('jobsEditCtrl', function ($scope, $http, $routeParams) {
         if(typeof $scope.job.CUS_ID === 'undefined' ) $scope.job.CUS_ID = $scope.customerId;
         console.log($scope.job);
         console.log($scope.customer);
-        
+        $scope.job.SVC_DT = $scope.formatDateForDb($scope.job.SVC_DT );
+        console.log($scope.job.SVC_DT);
         $http({
             method: 'POST',
             url: '/data/save',
@@ -89,4 +91,5 @@ app.controller('jobsEditCtrl', function ($scope, $http, $routeParams) {
             console.log(response);
         });
     }
+   
 });

@@ -4,23 +4,22 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div ng-repeat="tech in techs" ng-click="" class="tech row">
-            <div class="name item">{{tech.tech}}</div>
-            <div ng-repeat="day in tech.days" ng-click="" class="day columns medium-2 table-row">
-                <div ng-repeat="job in day" ng-click="" class="customer table-row">
-                    <div ng-if="$index == 0"><div class="name item">{{job.SVC_DT | formatDate}}</div></div>
-                    <div class="job-info">
-                        <div class="notes">{{job.NOTES}}</div>
-                    </div>
+
+<div class="work-weeks">
+    <div>
+        <input type="date" class="datepicker" ng-model="date" ng-blur="setWeek()"/>
+    </div>
+    <div ng-repeat="tech in techs" ng-click="" class="tech row">
+        <div class="columns medium-12 tech-name item">{{tech.name}}</div>
+        <div ng-repeat="(date, jobs) in tech.dates" ng-click="" class="date columns">
+            <div class="date-title item">{{date| formatDate | displayFullDay }} <br> {{date| formatDate}}</div>
+            <div ng-repeat="job in jobs" ng-click="" class="customer table-row">
+
+                <div class="job-info">
+                    <div class="notes"> <div class="name">{{job.customer.NAME}}</div>  <div class="price">${{job.AMOUNT}}</div></div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+</div>
+

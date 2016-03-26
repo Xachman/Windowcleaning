@@ -45,3 +45,12 @@ app.filter("formatDate", function(){
         return month + '/' + day + '/' + year;
     }
 });
+
+app.filter("displayFullDay", function(){
+    return function (dateString) {
+        var date = new Date(dateString);
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+        var dayNum = date.getDay();
+        return days[dayNum];
+    }
+});

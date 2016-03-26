@@ -9045,3 +9045,26 @@ input[name="color"] {
       flex-basis: 0; }
       .jobs-section > div > div:last-of-type {
         flex-grow: 2; }
+
+.work-weeks .date {
+  float: left;
+  width: 14.2%; }
+  .work-weeks .date .date-title {
+    text-align: center;
+    margin-bottom: 0.5em; }
+  .work-weeks .date .job-info {
+    font-size: 0.8rem; }
+    .work-weeks .date .job-info .name {
+      max-width: 61%;
+      overflow: hidden;
+      float: left;
+      white-space: pre; }
+    .work-weeks .date .job-info .price {
+      float: right; }
+
+.work-weeks .tech-name {
+  margin-bottom: 1em;
+  font-weight: bold; }
+
+.row {
+  max-width: 100%; }
