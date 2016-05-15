@@ -44,7 +44,8 @@ getDb = function() {
 };
 
 setDb = function() {
-    setConfig();
+    isData = setConfig();
+    if(!isData) return;
     var dbcreds = config.database;
     
     var dburl = dbcreds.dburl;
@@ -57,7 +58,14 @@ setDb = function() {
 };
 
 setConfig = function() {
-    config = jsonfile.readFileSync(file);
+    try{
+        config = jsonfile.readFileSync(file);
+        return true;
+    }catch(e){
+        console.log(e);
+        
+    }
+    return false;
 };
 
 setDb();

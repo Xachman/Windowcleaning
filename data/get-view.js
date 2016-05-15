@@ -13,7 +13,10 @@ module.exports.getData = function (req, res, data) {
                 docs.push(doc.value);
             });
             res.send(JSON.stringify(docs));
+        }else{
+            res.send(err);
         }
+        
     });
 }
 

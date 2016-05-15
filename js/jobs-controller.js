@@ -10,7 +10,8 @@ app.controller('jobsCtrl', function ($scope, $http) {
     $scope.getJobs = function (send) {
         var params = {
             viewGroup: 'job',
-            view: 'by_date'
+            view: 'by_date',
+            limit: 101
         }
         for (att in send) { params[att] =  send[att]}
         $http({

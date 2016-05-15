@@ -28,16 +28,10 @@ app.controller('workWeeksCtrl', function ($scope, $http) {
         var cusids = $scope.getCusIds(data);
 
         var getCusIds = function (data) {
-            
+           
             setCustomers(data);
-            console.log("jobs");
-            console.log($scope.jobs);
-            console.log("customers");
-            console.log($scope.customers);
             $scope.setTechs();
-            console.log("techs");
             $scope.combineCustomersToJobs();
-            console.log($scope.techs);
         }
         var setCustomers = function (data) {
             for (var i = 0; i < data.length; i++) {
@@ -60,11 +54,13 @@ app.controller('workWeeksCtrl', function ($scope, $http) {
         $scope.reset();
         var curr = $scope.date; // get current date
         console.log(curr);
-        var first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
-        var last = first + 6; // last day is the first day + 6
+        var first = new Date(curr); // First day is the day of the month - the day of the week
+        first.setDate(curr.getDate() - curr.getDay());
+        var last = new Date(first); // last day is the first day + 6
+        last.setDate(first.getDate() + 6);
 
-        var firstday = new Date(curr.setDate(first));
-        var lastday = new Date(curr.setDate(last));
+        var firstday = first;
+        var lastday = last;
         $scope.firstDay = firstday;
         $scope.lastDay = lastday;
         var startday = new Date(firstday);
@@ -77,7 +73,7 @@ app.controller('workWeeksCtrl', function ($scope, $http) {
             startday.setDate(startday.getDate() + 1);
         }
         console.log($scope.dateRange);
-
+        console.log("Week: "+this.formatDate(firstday)+" - "+this.formatDate(lastday));
         this.getJobs({startkey: this.formatDate(firstday), endkey: this.formatDate(lastday)}, $scope.getCustomers)
     }
 
@@ -140,7 +136,6 @@ app.controller('workWeeksCtrl', function ($scope, $http) {
         }
     }
     $scope.addJobByDay = function (tech, job) {
-        console.log(tech);
         var dates = Object.keys(tech.dates);
 
         for (var i = 0; i < dates.length; i++) {
